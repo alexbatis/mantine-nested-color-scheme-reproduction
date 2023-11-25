@@ -1,3 +1,5 @@
+import { Example } from "./Example";
+
 export default function HomePage() {
-  return <div>Home page</div>;
+  return <Example />;
 }
