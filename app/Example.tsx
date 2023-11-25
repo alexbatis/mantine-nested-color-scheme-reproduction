@@ -8,7 +8,9 @@ import {
 import { useState } from "react";
 import { useIsClient } from "./useIsClient";
 import { ComponentType, MyComponent } from "./MyComponent";
+// import { myCustomColorSchemeManager } from "./my-color-scheme-manager";
 
+const colorSchemeManager = localStorageColorSchemeManager; // can swap out for myCustomColorSchemeManager for testing;
 export const Example = () => {
   const [componentType, setComponentType] = useState<ComponentType>("card");
   const isClient = useIsClient();
@@ -49,7 +51,7 @@ export const Example = () => {
           getRootElement={() => getRootElement("section1")}
           theme={{ primaryColor: "orange" }}
           cssVariablesSelector="#section1"
-          colorSchemeManager={localStorageColorSchemeManager({
+          colorSchemeManager={colorSchemeManager({
             key: "section1-scheme",
           })}
         >
@@ -65,7 +67,7 @@ export const Example = () => {
           theme={{ primaryColor: "green" }}
           getRootElement={() => getRootElement("section2")}
           cssVariablesSelector="#section2"
-          colorSchemeManager={localStorageColorSchemeManager({
+          colorSchemeManager={colorSchemeManager({
             key: "section2-scheme",
           })}
         >
@@ -102,7 +104,7 @@ export const Example = () => {
         >
           <div id="section4">
             <MyComponent
-              title='Section 3 (forceColorScheme="light")'
+              title='Section 4 (forceColorScheme="light")'
               componentType={componentType}
             />
           </div>
@@ -143,7 +145,7 @@ export const Example = () => {
           }}
           getRootElement={() => getRootElement("section5")}
           cssVariablesSelector="#section5"
-          colorSchemeManager={localStorageColorSchemeManager({
+          colorSchemeManager={colorSchemeManager({
             key: "section5-scheme",
           })}
         >
